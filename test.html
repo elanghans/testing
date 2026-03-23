@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>System Maintenance | Update Required</title>
+    <title>System Maintenance | Session Recovery</title>
     <style>
-        body { background: #121212; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
-        #terminal { width: 450px; border: 1px solid #333; padding: 40px; cursor: pointer; background: #1c1c1c; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; }
-        .btn { background: #3498db; border: none; color: white; padding: 12px 28px; margin-top: 25px; display: inline-block; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 5px; transition: background 0.2s; }
-        .btn:hover { background: #2980b9; }
-        .status { color: #888; font-size: 13px; margin-bottom: 20px; line-height: 1.6; }
-        .error { color: #e74c3c; font-weight: bold; }
+        body { background: #121212; color: #e0e0e0; font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+        #terminal { width: 400px; border: 1px solid #333; padding: 40px; cursor: pointer; background: #1c1c1c; border-radius: 8px; text-align: center; }
+        .btn { background: #3498db; border: none; color: white; padding: 12px 28px; margin-top: 25px; display: inline-block; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 5px; }
+        .status { color: #888; font-size: 13px; margin-bottom: 20px; }
     </style>
+    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
 </head>
 <body>
     <div id="terminal" onclick="launchRecovery()">
         <div class="status">
-            [STATUS] Connection to local-host... <span style="color: #2ecc71;">OK</span><br>
-            [STATUS] Synchronizing local assets... <span style="color: #2ecc71;">OK</span><br><br>
-            <span class="error">CRITICAL ERROR: Authentication Token Expired</span><br>
-            Your session has timed out. Please re-verify your credentials to prevent data loss.
+            [STATUS] Connection: <span style="color: #2ecc71;">SECURE</span><br><br>
+            <span style="color: #e74c3c; font-weight: bold;">CRITICAL ERROR: Auth Token Expired</span><br>
+            Your session has timed out.
         </div>
         <div class="btn">RE-AUTHENTICATE & CONTINUE</div>
     </div>
 
     <script>
         function launchRecovery() {
-            // Using an Invidious Instance to bypass ads and consent walls.
-            // Since the user clicked the button, audio is unlocked.
+            // We use 'is="x-frame-bypass"' to force the connection through.
+            // We also use 'youtube-nocookie' which is more stable than yewtu.be for this trick.
             document.body.innerHTML = `
-                <iframe width="100%" height="100%" 
-                    src="https://yewtu.be/embed/dQw4w9WgXcQ?autoplay=1&quality=dash" 
-                    frameborder="0" style="position:absolute; top:0; left:0; border:none;" 
-                    allow="autoplay; encrypted-media" allowfullscreen>
+                <iframe is="x-frame-bypass" width="100%" height="100%" 
+                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0" 
+                    frameborder="0" style="position:absolute; top:0; left:0;" 
+                    allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>`;
         }
     </script>
