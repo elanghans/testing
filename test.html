@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>System Diagnostic Tool v4.2</title>
+    <title>Zalando | System Diagnostic Tool v4.2</title>
     <style>
-        body { background: #0e1111; color: #00ff00; font-family: monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
-        #terminal { width: 80%; border: 1px solid #333; padding: 20px; cursor: pointer; }
-        .btn { background: #222; border: 1px solid #00ff00; color: #00ff00; padding: 10px; margin-top: 20px; display: inline-block; }
+        body { background: #0e1111; color: #ff6900; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+        #terminal { width: 80%; border: 1px solid #444; padding: 30px; cursor: pointer; background: #1a1a1a; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        .btn { background: #ff6900; border: none; color: white; padding: 12px 24px; margin-top: 20px; display: inline-block; font-weight: bold; cursor: pointer; border-radius: 4px; }
+        .code { color: #888; margin-bottom: 10px; }
     </style>
 </head>
 <body>
-    <div id="terminal" onclick="startQuest()">
-        <div>[SYSTEM] Trino Query Latency Detected...</div>
-        <div>[SYSTEM] Analyzing Zalando Schema Triggers...</div>
-        <div>[ERROR] Permission Denied in /Applications/DataGrip.app</div>
-        <div class="btn">CLICK TO REPAIR PERMISSIONS AND RUN DIAGNOSTIC</div>
+    <div id="terminal" onclick="launchRecovery()">
+        <div class="code">> [SYSTEM] Trino Query Latency Detected in Cluster-ZA-01...</div>
+        <div class="code">> [SYSTEM] Analyzing Schema Triggers for User Assignment...</div>
+        <div class="code" style="color: #ff4444;">> [ERROR] Permission Denied: Unable to open DataGrip.app</div>
+        <div class="btn">CLICK TO RUN PERMISSION REPAIR SCRIPT</div>
     </div>
 
     <script>
-        function startQuest() {
-            // This replaces the terminal with the Rickroll after they click
+        function launchRecovery() {
+            // Using an Invidious Instance (yewtu.be) which has NO ADS by design
+            // We use 'autoplay=1' here. Since the user clicked the div, sound is allowed!
             document.body.innerHTML = `
                 <iframe width="100%" height="100%" 
-                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&start=1" 
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                    src="https://yewtu.be/embed/dQw4w9WgXcQ?autoplay=1&listen=0" 
+                    frameborder="0" style="position:absolute; top:0; left:0;" 
+                    allow="autoplay; encrypted-media" allowfullscreen>
                 </iframe>`;
         }
     </script>
