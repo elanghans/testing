@@ -1,12 +1,30 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>System Diagnostic Tool v4.2</title>
+    <style>
+        body { background: #0e1111; color: #00ff00; font-family: monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+        #terminal { width: 80%; border: 1px solid #333; padding: 20px; cursor: pointer; }
+        .btn { background: #222; border: 1px solid #00ff00; color: #00ff00; padding: 10px; margin-top: 20px; display: inline-block; }
+    </style>
 </head>
-<body style="margin:0; background:black;">
-    <iframe width="100%" height="100%" 
-        src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        frameborder="0" allow="autoplay">
-    </iframe>
+<body>
+    <div id="terminal" onclick="startQuest()">
+        <div>[SYSTEM] Trino Query Latency Detected...</div>
+        <div>[SYSTEM] Analyzing Zalando Schema Triggers...</div>
+        <div>[ERROR] Permission Denied in /Applications/DataGrip.app</div>
+        <div class="btn">CLICK TO REPAIR PERMISSIONS AND RUN DIAGNOSTIC</div>
+    </div>
+
+    <script>
+        function startQuest() {
+            // This replaces the terminal with the Rickroll after they click
+            document.body.innerHTML = `
+                <iframe width="100%" height="100%" 
+                    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&start=1" 
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>`;
+        }
+    </script>
 </body>
 </html>
